@@ -1,0 +1,19 @@
+AQIRION AI - Windows Quick Start
+
+1. Open the aqirion-ai folder in VS Code (the folder containing app.py).
+2. Open Terminal > New Terminal.
+3. Install packages:
+   python -m pip install -r requirements.txt
+4. Start the server:
+   python -m uvicorn app:app --host 127.0.0.1 --port 8765
+5. In a browser, visit exactly:
+   http://127.0.0.1:8765/
+
+If your browser shows Not Found but the Python health test succeeds,
+check browser proxy/VPN/extension settings; reinstalling files alone
+will not resolve a browser routing/proxy problem.
+
+Health test in a SECOND terminal:
+   python -c "import urllib.request; r=urllib.request.urlopen('http://127.0.0.1:8765/api/health'); print(r.status,r.read().decode())"
+
+For production deployment, follow README.md and set AQIRION_SECRET.
