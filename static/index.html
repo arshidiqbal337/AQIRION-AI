@@ -1,10 +1,448 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#063d35"><title>AQIRION AI — Your Ideas Deserve More Than Answers</title><link rel="icon" href="/static/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/styles.css"></head><body>
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#063d35">
+
+    <title>AQIRION AI — Your Ideas Deserve More Than Answers</title>
+
+    <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+
 <div id="toast" role="status" aria-live="polite"></div>
-<header class="topbar"><a href="#home" class="brand"><img src="/static/logo.svg" alt="AQIRION AI logo"><span>AQIRION <b>AI</b></span></a><nav><a href="#features">Features</a><a href="#how">How it works</a><a href="#about">About</a></nav><div class="nav-actions"><button class="btn outline" id="signinBtn">Sign In</button><button class="btn primary" id="startBtn">Get Started →</button></div></header>
-<main id="landing"><section id="home" class="hero"><div class="hero-text"><div class="eyebrow">✦ AI-POWERED INTELLIGENT WORKSPACE</div><h1>Your Ideas<br>Deserve <em>More</em><br>Than Answers.</h1><p>Go beyond ordinary AI chat. Organize research, analyze documents, explore evidence and build structured reports in one beautiful workspace.</p><div class="hero-buttons"><button class="btn primary big" id="heroStart">Get Started Free →</button><a class="btn outline big" href="#how">Explore How It Works</a></div><div class="hero-points"><span>✓ Source-linked findings</span><span>✓ Private workspaces</span><span>✓ PDF reports</span></div></div><div class="hero-art"><div class="orb"><img src="/static/logo.svg" alt="AQIRION symbol"></div><div class="float-chip c1">🔎 <strong>Research</strong><small>Find relevant evidence</small></div><div class="float-chip c2">◈ <strong>Analyze</strong><small>Compare information</small></div><div class="float-chip c3">✓ <strong>Verify</strong><small>Trace to sources</small></div><div class="float-chip c4">▤ <strong>Report</strong><small>Export insights</small></div><div class="art-caption">Intelligence beyond boundaries.</div></div></section>
-<section id="features" class="section"><div class="section-title"><span class="eyebrow">ONE CONNECTED WORKSPACE</span><h2>Everything you need to work smarter</h2><p>Research tools designed to make information easier to explore and organize.</p></div><div class="features-grid"><article class="feature"><span>◈</span><h3>Evidence Research</h3><p>Find relevant passages across your uploaded documents with source references.</p></article><article class="feature"><span>▤</span><h3>Knowledge Hub</h3><p>Store TXT, Markdown, DOCX and text-based PDF documents in your workspace.</p></article><article class="feature"><span>◎</span><h3>Research Workflow</h3><p>See each stage: research, analysis, source tracing and reporting.</p></article><article class="feature"><span>▥</span><h3>Downloadable Reports</h3><p>Export your findings and supporting excerpts as professional PDF files.</p></article></div></section>
-<section id="how" class="section steps-section"><div class="section-title"><span class="eyebrow">HOW IT WORKS</span><h2>From question to evidence</h2></div><div class="steps"><div><b>01</b><h3>Upload</h3><p>Add your source documents.</p></div><div><b>02</b><h3>Ask</h3><p>Enter a research question.</p></div><div><b>03</b><h3>Explore</h3><p>Review ranked source excerpts.</p></div><div><b>04</b><h3>Export</h3><p>Download a PDF report.</p></div></div></section>
-<section id="about" class="cta"><h2>Ideas deserve a smarter workspace.</h2><p>Start organizing your research with AQIRION AI.</p><button class="btn primary big" id="ctaStart">Create Your Workspace →</button></section></main>
-<section id="auth" class="auth-wrap hidden"><div class="auth-visual"><img src="/static/logo.svg" alt=""><h2>One Workspace.<br>More Possibilities.</h2><p>Research • Analyze • Trace • Report</p></div><div class="auth-card"><div class="auth-brand"><img src="/static/logo.svg" alt=""><strong>AQIRION <em>AI</em></strong></div><h2 id="authTitle">Welcome Back</h2><p id="authSubtitle">Sign in to continue your intelligent workspace.</p><div class="tabs"><button id="loginTab" class="active">Sign In</button><button id="signupTab">Sign Up</button></div><form id="authForm"><label id="nameWrap" class="hidden">Full Name<input id="authName" type="text" autocomplete="name" placeholder="Arshid Iqbal"></label><label>Email Address<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required></label><label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="10" placeholder="At least 10 characters" required></label><button type="submit" class="btn primary full" id="authSubmit">Sign In →</button></form><p class="auth-foot">Your documents and tasks stay in your own account. <button class="text-btn" id="backHome">Back to homepage</button></p></div></section>
-<section id="workspace" class="workspace hidden"><aside class="sidebar"><a class="brand" href="#"><img src="/static/logo.svg" alt=""><span>AQIRION <b>AI</b></span></a><div class="side-links"><button data-page="dashboard" class="active">▦ <span>Dashboard</span></button><button data-page="research">✦ <span>New Research</span></button><button data-page="documents">▤ <span>Knowledge Hub</span></button><button data-page="tasks">◷ <span>My Tasks</span></button><button data-page="workflow">◇ <span>AI Workflow</span></button></div><div class="side-footer"><div class="mini-avatar" id="avatar">A</div><div><strong id="sidebarName">Arshid Iqbal</strong><small>Personal workspace</small></div><button id="logoutBtn" title="Sign out">↪</button></div></aside><div class="workspace-main"><div class="work-header"><div class="search-hint">✦ AQIRION AI / <span id="breadcrumb">Dashboard</span></div><div class="account"><span class="status-dot"></span><span id="headerName">Arshid Iqbal</span><div class="mini-avatar" id="headerAvatar">A</div></div></div><div id="page"></div></div></section>
-<script src="/static/app.js" defer></script></body></html>
+
+<!-- NAVIGATION -->
+<header class="topbar">
+    <a href="#home" class="brand">
+        <img src="/static/logo.svg" alt="AQIRION AI logo">
+        <span>AQIRION <b>AI</b></span>
+    </a>
+
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="btn outline" id="signinBtn" type="button">
+            Sign In
+        </button>
+
+        <button class="btn primary" id="startBtn" type="button">
+            Get Started →
+        </button>
+    </div>
+</header>
+
+<!-- LANDING PAGE -->
+<main id="landing">
+
+    <section id="home" class="hero">
+
+        <div class="hero-text">
+            <div class="eyebrow">
+                ✦ AI-POWERED INTELLIGENT WORKSPACE
+            </div>
+
+            <h1>
+                Your Ideas<br>
+                Deserve <em>More</em><br>
+                Than Answers.
+            </h1>
+
+            <p>
+                Go beyond ordinary AI chat.
+                Organize research, analyze documents,
+                explore evidence and build structured
+                reports in one beautiful workspace.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn primary big" id="heroStart" type="button">
+                    Get Started Free →
+                </button>
+
+                <a class="btn outline big" href="#how">
+                    Explore How It Works
+                </a>
+            </div>
+
+            <div class="hero-points">
+                <span>✓ Source-linked findings</span>
+                <span>✓ Private workspaces</span>
+                <span>✓ PDF reports</span>
+            </div>
+        </div>
+
+        <div class="hero-art">
+
+            <div class="orb">
+                <img src="/static/logo.svg" alt="AQIRION symbol">
+            </div>
+
+            <div class="float-chip c1">
+                🔎 <strong>Research</strong>
+                <small>Find relevant information</small>
+            </div>
+
+            <div class="float-chip c2">
+                ◈ <strong>Analyze</strong>
+                <small>Compare information</small>
+            </div>
+
+            <div class="float-chip c3">
+                ✓ <strong>Verify</strong>
+                <small>Review supporting sources</small>
+            </div>
+
+            <div class="float-chip c4">
+                ▣ <strong>Report</strong>
+                <small>Export insights</small>
+            </div>
+
+            <div class="art-caption">
+                Intelligence beyond boundaries.
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+
+        <div class="section-title">
+            <span class="eyebrow">ONE CONNECTED WORKSPACE</span>
+
+            <h2>Everything you need to work smarter</h2>
+
+            <p>
+                Research tools designed to make
+                information easier to explore and organize.
+            </p>
+        </div>
+
+        <div class="features-grid">
+
+            <article class="feature">
+                <span>◈</span>
+                <h3>AI Research</h3>
+                <p>
+                    Explore research questions using AI,
+                    uploaded documents and available web sources.
+                </p>
+            </article>
+
+            <article class="feature">
+                <span>▣</span>
+                <h3>Knowledge Hub</h3>
+                <p>
+                    Store TXT, Markdown, DOCX and text-based
+                    PDF documents in your workspace.
+                </p>
+            </article>
+
+            <article class="feature">
+                <span>◉</span>
+                <h3>Research Workflow</h3>
+                <p>
+                    Explore research, analysis,
+                    source tracing and reporting.
+                </p>
+            </article>
+
+            <article class="feature">
+                <span>▤</span>
+                <h3>Downloadable Reports</h3>
+                <p>
+                    Export research findings and
+                    supporting excerpts as PDF files.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section steps-section">
+
+        <div class="section-title">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h2>From question to research</h2>
+        </div>
+
+        <div class="steps">
+
+            <div>
+                <b>01</b>
+                <h3>Upload</h3>
+                <p>Add your source documents.</p>
+            </div>
+
+            <div>
+                <b>02</b>
+                <h3>Ask</h3>
+                <p>Enter a research question.</p>
+            </div>
+
+            <div>
+                <b>03</b>
+                <h3>Explore</h3>
+                <p>Review AI answers and supporting sources.</p>
+            </div>
+
+            <div>
+                <b>04</b>
+                <h3>Export</h3>
+                <p>Download a PDF report.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section id="about" class="cta">
+
+        <h2>Ideas deserve a smarter workspace.</h2>
+
+        <p>
+            Start organizing your research with AQIRION AI.
+        </p>
+
+        <button class="btn primary big" id="ctaStart" type="button">
+            Create Your Workspace →
+        </button>
+
+    </section>
+
+</main>
+
+<!-- AUTHENTICATION -->
+<section id="auth" class="auth-wrap hidden">
+
+    <div class="auth-visual">
+        <img src="/static/logo.svg" alt="">
+
+        <h2>
+            One Workspace.<br>
+            More Possibilities.
+        </h2>
+
+        <p>
+            Research • Analyze • Trace • Report
+        </p>
+    </div>
+
+    <div class="auth-card">
+
+        <div class="auth-brand">
+            <img src="/static/logo.svg" alt="">
+            <strong>AQIRION <em>AI</em></strong>
+        </div>
+
+        <h2 id="authTitle">Welcome Back</h2>
+
+        <p id="authSubtitle">
+            Sign in to continue your intelligent workspace.
+        </p>
+
+        <div class="tabs">
+            <button id="loginTab" class="active" type="button">
+                Sign In
+            </button>
+
+            <button id="signupTab" type="button">
+                Sign Up
+            </button>
+        </div>
+
+        <form id="authForm">
+
+            <label id="nameWrap" class="hidden">
+                Full Name
+
+                <input
+                    id="authName"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Enter your full name"
+                >
+            </label>
+
+            <label>
+                Email Address
+
+                <input
+                    id="authEmail"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                >
+            </label>
+
+            <label>
+                Password
+
+                <input
+                    id="authPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    minlength="10"
+                    placeholder="At least 10 characters"
+                    required
+                >
+            </label>
+
+            <button
+                type="submit"
+                class="btn primary full"
+                id="authSubmit"
+            >
+                Sign In →
+            </button>
+
+        </form>
+
+        <!-- GOOGLE LOGIN -->
+        <div class="google-auth-section">
+
+            <p style="text-align:center; margin:18px 0 12px; color:#777;">
+                Or continue with
+            </p>
+
+            <a
+                href="/auth/google"
+                id="googleLoginBtn"
+                class="btn outline full"
+                style="display:flex;
+                       align-items:center;
+                       justify-content:center;
+                       gap:12px;
+                       width:100%;
+                       padding:13px;
+                       border-radius:10px;
+                       box-sizing:border-box;
+                       text-decoration:none;"
+            >
+
+                <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 5.38 6.51 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.28 5.48-4.82 7.18l7.73 6C44.36 38.03 46.98 31.87 46.98 24.55z"/>
+                    <path fill="#FBBC05" d="M10.53 28.59A14.41 14.41 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.2A23.9 23.9 0 0 0 0 24c0 3.87.93 7.51 2.56 10.78l7.97-6.19z"/>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                </svg>
+
+                <span>Continue with Google</span>
+
+            </a>
+
+        </div>
+
+        <p class="auth-foot">
+            Your documents and tasks stay in your own account.
+
+            <button class="text-btn" id="backHome" type="button">
+                Back to homepage
+            </button>
+        </p>
+
+    </div>
+
+</section>
+
+<!-- WORKSPACE -->
+<section id="workspace" class="workspace hidden">
+
+    <aside class="sidebar">
+
+        <a class="brand" href="#">
+            <img src="/static/logo.svg" alt="">
+            <span>AQIRION <b>AI</b></span>
+        </a>
+
+        <div class="side-links">
+
+            <button data-page="dashboard" class="active">
+                ▦ <span>Dashboard</span>
+            </button>
+
+            <button data-page="research">
+                ✦ <span>New Research</span>
+            </button>
+
+            <button data-page="documents">
+                ▣ <span>Knowledge Hub</span>
+            </button>
+
+            <button data-page="tasks">
+                ◉ <span>My Tasks</span>
+            </button>
+
+            <button data-page="workflow">
+                ◇ <span>AI Workflow</span>
+            </button>
+
+        </div>
+
+        <div class="side-footer">
+
+            <div class="mini-avatar" id="avatar">A</div>
+
+            <div>
+                <strong id="sidebarName">My Account</strong>
+                <small>Personal workspace</small>
+            </div>
+
+            <button
+                id="logoutBtn"
+                type="button"
+                title="Sign out"
+                aria-label="Logout"
+                style="display:flex;
+                       align-items:center;
+                       justify-content:center;
+                       gap:6px;"
+            >
+                <span>↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <div class="workspace-main">
+
+        <div class="work-header">
+
+            <div class="search-hint">
+                ✦ AQIRION AI /
+                <span id="breadcrumb">Dashboard</span>
+            </div>
+
+            <div class="account">
+                <span class="status-dot"></span>
+                <span id="headerName">My Account</span>
+                <div class="mini-avatar" id="headerAvatar">A</div>
+            </div>
+
+        </div>
+
+        <div id="page"></div>
+
+    </div>
+
+</section>
+
+<script src="/static/app.js" defer></script>
+
+</body>
+</html>
