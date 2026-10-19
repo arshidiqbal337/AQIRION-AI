@@ -5,7 +5,6 @@ import math
 from collections import Counter
 
 from google import genai
-from google.genai import types
 
 
 # ============================================================
@@ -166,7 +165,50 @@ def get_web_sources(response):
 
 
 # ============================================================
-# GEMINI AI + GOOGLE SEARCH
+# EXTRACT TEXT FROM INTERACTIONS API RESPONSE
+# ============================================================
+
+def extract_interaction_text(interaction):
+    texts = []
+
+    outputs = getattr(interaction, "outputs", None) or []
+
+    for output in outputs:
+        content = getattr(output, "content", None)
+
+        if isinstance(content, str):
+            if content.strip():
+                texts.append(content.strip())
+            continue
+
+        if content:
+            if not isinstance(content, (list, tuple)):
+                content = [content]
+
+            for part in content:
+                if isinstance(part, str):
+                    if part.strip():
+                        texts.append(part.strip())
+                elif isinstance(part, dict):
+                    value = part.get("text", "")
+                    if value:
+                        texts.append(str(value))
+                else:
+                    value = getattr(part, "text", None)
+                    if value:
+                        texts.append(str(value))
+
+        else:
+            value = getattr(output, "text", None)
+            if value:
+                texts.append(str(value))
+
+    return "\n\n".join(texts).strip()
+
+
+# ============================================================
+# GEMINI AI - INTERACTIONS API TEST
+# GOOGLE SEARCH TEMPORARILY DISABLED
 # ============================================================
 
 def generate_ai_answer(question, evidence):
@@ -193,7 +235,8 @@ Your responsibilities:
    and in a natural conversational style.
 
 2. Use Google Search grounding when the question needs
-   recent, current, or externally verifiable information.
+   recent, current, or externally verifiable information
+   and the search tool is available.
 
 3. Use uploaded document evidence when relevant.
 
@@ -251,46 +294,33 @@ User question:
 
 No relevant uploaded document evidence is available.
 
-Use Google Search grounding where appropriate.
-Do not invent citations.
+Google Search grounding is temporarily unavailable.
+Answer using existing knowledge where possible.
+Do not invent citations or claim current verification.
 
 User question:
 
 {question}
 """
 
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            tools=[
-                types.Tool(
-                    google_search=types.GoogleSearch()
-                )
-            ],
-            temperature=0.3,
-        ),
+    # Gemini Interactions API
+    # Same API method shown by Google AI Studio.
+    # Google Search is disabled for this diagnostic test.
+
+    interaction = client.interactions.create(
+        model="models/gemini-3.8-flash",
+        input=prompt,
+        generation_config={
+            "max_output_tokens": 2048,
+            "thinking_level": "medium",
+        },
     )
 
-    answer = (response.text or "").strip()
+    answer = extract_interaction_text(interaction)
 
     if not answer:
         raise RuntimeError(
             "Gemini returned an empty answer"
         )
-
-    web_sources = get_web_sources(response)
-
-    if web_sources:
-        answer += "\n\nWeb sources:\n"
-
-        for index, source in enumerate(
-            web_sources,
-            start=1
-        ):
-            answer += (
-                f"\n{index}. {source['title']}\n"
-                f"{source['url']}\n"
-            )
 
     return answer
