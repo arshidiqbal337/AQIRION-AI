@@ -77,18 +77,102 @@ form input{display:block;width:100%;padding:13px;border:1px solid #d7e5e2;border
 .auth-foot{line-height:1.7}
 .text-btn{border:0;background:none;color:#008f75;font-weight:700}
 
-.workspace{display:grid;grid-template-columns:235px 1fr;min-height:100vh}
+.workspace{display:grid;grid-template-columns:235px minmax(0,1fr);min-height:100vh}
 .workspace~.topbar{display:none}
-.sidebar{background:#fff;border-right:1px solid var(--border);padding:23px 15px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.sidebar{background:#fff;border-right:1px solid var(--border);padding:23px 15px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;min-width:0}
 .sidebar .brand{font-size:20px;margin-bottom:35px}
 .side-links{display:grid;gap:7px}
 .side-links button{display:flex;align-items:center;gap:13px;border:0;background:transparent;text-align:left;padding:14px;border-radius:9px;color:#506976;font-weight:700}
 .side-links button.active,.side-links button:hover{background:linear-gradient(110deg,#086c5c,#0bb98e);color:white}
-.side-footer{margin-top:auto;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;padding:9px;gap:8px}
-.mini-avatar{width:32px;height:32px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:linear-gradient(130deg,#10b98d,#063e35);color:white;font-weight:800}
-.side-footer strong{font-size:12px;display:block}
-.side-footer small{font-size:10px;color:var(--muted)}
-.side-footer button{border:0;background:none;font-size:22px;margin-left:auto}
+
+/* FIXED PROFILE AND LOGOUT SECTION */
+.side-footer{
+  margin-top:auto;
+  width:100%;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:12px;
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  align-items:center;
+  column-gap:10px;
+  row-gap:12px;
+  background:#f8fcfa;
+  overflow:hidden;
+}
+
+.mini-avatar{
+  width:34px;
+  height:34px;
+  min-width:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(130deg,#10b98d,#063e35);
+  color:white;
+  font-weight:800;
+  font-size:13px;
+}
+
+.side-footer > div:not(.mini-avatar){
+  min-width:0;
+  max-width:100%;
+}
+
+.side-footer strong{
+  font-size:12px;
+  font-weight:800;
+  color:var(--ink);
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.side-footer small{
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  margin-top:3px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.side-footer button{
+  grid-column:1 / -1;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  margin:0;
+  padding:10px 12px;
+  border:1px solid #bde7d9;
+  border-radius:9px;
+  background:#e8faf4;
+  color:#08735e;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  white-space:nowrap;
+  transition:background .2s,color .2s;
+}
+
+.side-footer button:hover{
+  background:#087b68;
+  color:#fff;
+  border-color:#087b68;
+}
+
+.side-footer button svg,
+.side-footer button i{
+  flex-shrink:0;
+}
+
 .workspace-main{min-width:0}
 .work-header{height:72px;background:white;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 32px}
 .search-hint{color:#668076;font-size:13px}
@@ -176,45 +260,4 @@ textarea{width:100%;resize:vertical;min-height:150px;padding:16px;border:1px sol
   .search-hint{display:none}
   #page{padding:20px 14px}
   .hero-points{gap:10px}
-}
-
-/* AQIRION AI - Logout and profile alignment fix */
-@media (min-width:701px){
-  .side-footer{
-    width:100%;
-    min-width:0;
-    gap:6px;
-    padding:8px 6px;
-    overflow:hidden;
-  }
-  .side-footer .mini-avatar{
-    width:28px;
-    height:28px;
-  }
-  .side-footer > div:not(.mini-avatar){
-    flex:1 1 auto;
-    min-width:0;
-    overflow:hidden;
-  }
-  .side-footer strong,
-  .side-footer small{
-    display:block;
-    max-width:100%;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-  }
-  .side-footer strong{font-size:11px}
-  .side-footer small{font-size:9px}
-  .side-footer button{
-    flex:0 0 auto;
-    min-width:0;
-    max-width:86px;
-    margin-left:0;
-    padding:5px 2px;
-    font-size:12px;
-    line-height:1.2;
-    white-space:nowrap;
-    color:var(--deep);
-  }
 }
